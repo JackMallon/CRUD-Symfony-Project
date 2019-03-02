@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="/css/style.css">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <a href="{{ url('default_homepage') }}">Home page</a>
+        <a href="{{ url('default_about') }}">About page</a>
+
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
