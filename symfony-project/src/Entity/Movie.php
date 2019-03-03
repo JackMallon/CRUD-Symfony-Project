@@ -1,11 +1,48 @@
 <?php
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+/**
+ * @ORM\Entity(repositoryClass="App\Repository\MovieRepository")
+ */
+
 class Movie
 {
+
+   /**
+   * @ORM\Id
+   * @ORM\GeneratedValue
+   * @ORM\Column(type="integer")
+   */
+    private $id;
+    /**
+    * @ORM\Column(type="string")
+    */
     private $title;
+    /**
+    * @ORM\Column(type="string")
+    */
     private $imageUrl;
+    /**
+    * @ORM\Column(type="decimal", precision=7, scale=2)
+    */
     private $price;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $title
+     */
+    public function setId($title): void
+    {
+        $this->title = $id;
+    }
 
     /**
      * @return mixed
@@ -56,15 +93,17 @@ class Movie
     }
 
     /**
-     * Student constructor.
+     * Movie constructor.
+     * @param $id
      * @param $title
      * @param $imageUrl
      * @param $price
      */
-    public function __construct($title, $imageUrl, $price)
+    public function __construct($id, $title, $imageUrl, $price)
     {
         $this->title = $title;
         $this->imageUrl = $imageUrl;
         $this->price = $price;
+        $this->id = $id;
     }
 }
